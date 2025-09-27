@@ -102,7 +102,7 @@ Follow prompts to add items or load/save from `menu.txt`.
 ├── billingcheckout.cpp      # Program 2: Billing Checkout
 ├── transactionstatsfile.cpp # Program 3: Daily Sales Statistics
 ├── Project Assignment .pdf  # Full design, test plan, and evaluation
-├── settings.json            # VSCode settings (syntax associations)
+├── settings.json            
 └── README.md
 ```
 
