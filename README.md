@@ -64,13 +64,13 @@ This produces three executables: `menu`, `billing`, and `stats`.
 
 ## Run
 
-### 1️⃣ Create or Edit Menu
+### 1 Create or Edit Menu
 ```bash
 ./menu
 ```
 Follow prompts to add items or load/save from `menu.txt`.
 
-### 2️⃣ Checkout Orders
+### 2 Checkout Orders
 ```bash
 ./billing
 ```
@@ -78,7 +78,7 @@ Follow prompts to add items or load/save from `menu.txt`.
 * Enter item numbers and quantities (0 to finish).
 * View printed bill and confirm that `transactions.txt` is updated.
 
-### 3️⃣ View Daily Statistics
+### 3 View Daily Statistics
 ```bash
 ./stats
 ```
