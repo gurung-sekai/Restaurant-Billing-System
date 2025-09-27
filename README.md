@@ -15,6 +15,7 @@ The system is divided into three standalone programs:
 - Supports adding, displaying, loading, and saving items in the format  
   `ItemNo:Category:Description:Price`.
 
+
 ### 2. Billing Checkout
 *Purpose:* Used in each restaurant to generate customer bills.  
 *Highlights:*
@@ -34,6 +35,13 @@ The system is divided into three standalone programs:
 - **Data Structures:** `std::vector` for dynamic menus; `std::map` for aggregating sales.
 - **File I/O:** persistent storage for menus and transactions using plain-text files.
 - **Robust Testing:** structured test plans and logs to validate each program’s functionality.
+
+## Screenshots 
+
+<img width="677" height="381" alt="image" src="https://github.com/user-attachments/assets/3982ea78-d616-4e5e-a6c5-47945a6ffaa0" />
+
+<img width="391" height="258" alt="image" src="https://github.com/user-attachments/assets/0cb38efc-089b-4736-9c73-50390051db8b" />
+
 
 
 ## Build & Run
