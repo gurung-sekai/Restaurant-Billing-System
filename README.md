@@ -1,67 +1,129 @@
-# Restaurant Billing System
+# Restaurant Billing System (C++)
 
-A three-part **C++ console application** that manages a restaurant’s menu, customer billing, and end-of-day sales reporting.
+A three-part C++ application that manages a restaurant’s **menu creation**, **customer billing**,  
+and **daily sales statistics**. Each module is a separate console program designed to work together.
 
-## Overview
-This project was designed and implemented using **object-oriented principles** and standard C++ data structures.  
-It demonstrates the full development cycle: requirements analysis, program design, coding, testing, and evaluation.
+Developed as a project to demonstrate **C++ programming**, **file I/O**,  
+and **modular software design**.
 
+---
+
+## Project Overview
+
+| Program | Purpose |
+|--------|---------|
+| **Menu Creation (`menu.cpp`)** | Head-office tool to build and maintain the restaurant menu. |
+| **Billing Checkout (`billingcheckout.cpp`)** | Point-of-sale program to take customer orders, calculate totals with VAT, and save each transaction. |
+| **Transaction Statistics (`transactionstatsfile.cpp`)** | End-of-day report generator summarising total sales and per-item order counts. |
+
+The complete design, UI mock-ups, test plans, and evaluation are described in  
 More on : [Project Assignment.pdf](Restaurant-Billing-System/docs/Project%20Assignment%20.pdf)
 
+---
 
-The system is divided into three standalone programs:
+## Features
 
-### 1. Menu Creator
-*Purpose:* Used by head office to create and maintain a digital menu.  
-*Highlights:*
-- Stores menu items in a `std::vector` of custom structs.
-- Supports adding, displaying, loading, and saving items in the format  
-  `ItemNo:Category:Description:Price`.
-
+### 1. Menu Creation
+* Add new menu items with **item number**, **category**, **description**, and **price**.
+* Display current menu in a clean table.
+* Save menu to `menu.txt` and load it back on demand.
+* Input stored as colon-delimited text for easy sharing across programs.
 
 ### 2. Billing Checkout
-*Purpose:* Used in each restaurant to generate customer bills.  
-*Highlights:*
-- Reads the menu file and displays items with numbers and prices.
-- Accepts item selections and quantities, calculates subtotal, VAT (20 %), and grand total.
-- Appends a time-stamped bill to a daily `transactions.txt` file.
+* Reads menu from `menu.txt`.
+* Lets cashier select item numbers and quantities until order completion.
+* Calculates **subtotal**, **20 % VAT**, and **grand total** with currency formatting.
+* Prints a detailed bill to the console and appends it to `transactions.txt` with a timestamp.
 
-### 3. Daily Statistics
-*Purpose:* Used by head office to analyse daily sales.  
-*Highlights:*
-- Reads all transactions for the day.
-- Uses a `std::map` to count orders per item and compute total revenue.
-- Displays a concise report of item counts and grand total takings.
+### 3. Daily Sales Statistics
+* Parses `transactions.txt` to:
+  * Count total orders for each item number.
+  * Compute the **grand total takings**.
+* Displays a concise daily report for management.
 
-## Key Technical Features
-- **Object-Oriented Design:** separation of concerns across three programs.
-- **Data Structures:** `std::vector` for dynamic menus; `std::map` for aggregating sales.
-- **File I/O:** persistent storage for menus and transactions using plain-text files.
-- **Robust Testing:** structured test plans and logs to validate each program’s functionality.
+---
 
-## Screenshots 
+## Build
 
-<img width="677" height="381" alt="image" src="https://github.com/user-attachments/assets/3982ea78-d616-4e5e-a6c5-47945a6ffaa0" />
-
-<img width="391" height="258" alt="image" src="https://github.com/user-attachments/assets/0cb38efc-089b-4736-9c73-50390051db8b" />
-
-
-
-## Build & Run
-Compile each component separately with a standard C++ compiler (e.g. g++):
+Any C++17-compatible compiler (GCC/Clang/MSVC) works.
 
 ```bash
-g++ src/menu.cpp -o menu
-./menu           # create or edit menu
+# Menu creation
+g++ -std=c++17 -O2 -Wall -Wextra -o menu menu.cpp
 
-g++ src/billingcheckout.cpp -o billing
-./billing        # generate customer bills
+# Billing checkout
+g++ -std=c++17 -O2 -Wall -Wextra -o billing billingcheckout.cpp
 
-g++ src/transactionstatsfile.cpp -o stats
-./stats          # view daily sales statistics
+# Daily statistics
+g++ -std=c++17 -O2 -Wall -Wextra -o stats transactionstatsfile.cpp
 ```
 
-## What This Demonstrates
-- Ability to **design, implement, and test** a complete software system.
-- Competence with **C++ OOP, STL containers, and file handling**.
-- Clear documentation and professional repository organization suitable for internships or entry-level software roles.
+This produces three executables: `menu`, `billing`, and `stats`.
+
+---
+
+## Run
+
+### 1️⃣ Create or Edit Menu
+```bash
+./menu
+```
+Follow prompts to add items or load/save from `menu.txt`.
+
+### 2️⃣ Checkout Orders
+```bash
+./billing
+```
+* Loads the menu.
+* Enter item numbers and quantities (0 to finish).
+* View printed bill and confirm that `transactions.txt` is updated.
+
+### 3️⃣ View Daily Statistics
+```bash
+./stats
+```
+* Reads all saved transactions.
+* Outputs number of orders per item and the grand total revenue.
+
+---
+
+## Example Workflow
+
+1. **Head office** builds the menu with `menu`.
+2. **Cashier** runs `billing` throughout the day to record customer purchases.
+3. **Manager** runs `stats` at close to see total takings and per-item counts.
+
+---
+
+## Repository Structure
+
+```
+├── menu.cpp                 # Program 1: Menu Creation
+├── billingcheckout.cpp      # Program 2: Billing Checkout
+├── transactionstatsfile.cpp # Program 3: Daily Sales Statistics
+├── Project Assignment .pdf  # Full design, test plan, and evaluation
+├── settings.json            # VSCode settings (syntax associations)
+└── README.md
+```
+
+---
+
+## Skills Demonstrated
+
+* **Modern C++ (C++17)** – STL containers, streams, and string handling.
+* **File I/O** – persistent storage and parsing of menu and transaction data.
+* **Modular Architecture** – three independent yet cooperative programs.
+* **Software Engineering** – UI design, test planning, and evaluation documented in the PDF.
+
+---
+
+## Future Improvements
+
+* Stronger input validation and error handling (e.g., disallow negative prices or quantities).
+* Richer output formatting with aligned columns and color.
+* Merge into a single application with subcommands or GUI front-end.
+* Database (SQLite) backend for scalability and concurrent access.
+
+---
+
+Developed by **Pritam Gurung**  
