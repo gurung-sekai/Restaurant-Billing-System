@@ -6,6 +6,9 @@ A three-part **C++ console application** that manages a restaurant’s menu, cus
 This project was designed and implemented using **object-oriented principles** and standard C++ data structures.  
 It demonstrates the full development cycle: requirements analysis, program design, coding, testing, and evaluation.
 
+More on : [Project Assignment.pdf](docs/Project%20Assignment%20.pdf)
+
+
 The system is divided into three standalone programs:
 
 ### 1. Menu Creator
